@@ -8,16 +8,23 @@ namespace ProvaPub.Services
 		{
 			if (paymentMethod == "pix")
 			{
+				var paymentPix = new PaymentPix();
+                paymentPix.DueDate = DateTime.Now;
+                paymentPix.Key = "";
 				//Faz pagamento...
 			}
 			else if (paymentMethod == "creditcard")
 			{
-				//Faz pagamento...
-			}
+                var paymentCredicard = new PaymentCredicard();
+                paymentCredicard.DueDate = DateTime.Now;
+                paymentCredicard.Number = "";
+                //Faz pagamento...
+            }
 			else if (paymentMethod == "paypal")
 			{
-				//Faz pagamento...
-			}
+                var paymentPayPal = new PaymentPayPal();
+                //Faz pagamento...
+            }
 
 			return await Task.FromResult( new Order()
 			{
